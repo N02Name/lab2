@@ -277,6 +277,7 @@ namespace CppCLRWinformsProjekt {
 	}
 	private: System::Void btnReset_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->lblOper->Text = L"";
+		this->lblError->Text = L"";
 		this->txt1->Text = L"";
 		this->txt2->Text = L"";
 		this->txtResult->Text = L"";
