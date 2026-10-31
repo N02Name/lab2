@@ -47,6 +47,8 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::Button^ btnSubstract;
 	private: System::Windows::Forms::Button^ btnMultiply;
 	private: System::Windows::Forms::Button^ btnDivide;
+	private: System::Windows::Forms::Label^ lblError;
+
 
 
 	protected:
@@ -77,6 +79,7 @@ namespace CppCLRWinformsProjekt {
 			this->btnSubstract = (gcnew System::Windows::Forms::Button());
 			this->btnMultiply = (gcnew System::Windows::Forms::Button());
 			this->btnDivide = (gcnew System::Windows::Forms::Button());
+			this->lblError = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// btnClose
@@ -219,11 +222,22 @@ namespace CppCLRWinformsProjekt {
 			this->btnDivide->UseVisualStyleBackColor = true;
 			this->btnDivide->Click += gcnew System::EventHandler(this, &FFirst::btnDivide_Click);
 			// 
+			// lblError
+			// 
+			this->lblError->AutoSize = true;
+			this->lblError->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Bold));
+			this->lblError->Location = System::Drawing::Point(60, 155);
+			this->lblError->Name = L"lblError";
+			this->lblError->Size = System::Drawing::Size(0, 17);
+			this->lblError->TabIndex = 17;
+			this->lblError->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
 			// FFirst
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(344, 221);
+			this->Controls->Add(this->lblError);
 			this->Controls->Add(this->btnDivide);
 			this->Controls->Add(this->btnMultiply);
 			this->Controls->Add(this->btnSubstract);
@@ -258,7 +272,7 @@ namespace CppCLRWinformsProjekt {
 			i3 = i1 + i2;
 			this->txtResult->Text = Convert::ToString(i3);
 		} else {
-			this->lblOper->Text = L"Невозможное число";
+			this->lblError->Text = L"Невозможное число";
 		}
 	}
 	private: System::Void btnReset_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -277,7 +291,7 @@ namespace CppCLRWinformsProjekt {
 			this->txtResult->Text = Convert::ToString(i3);
 		}
 		else {
-			this->lblOper->Text = L"Невозможное число";
+			this->lblError->Text = L"Невозможное число";
 		}
 	}
 	private: System::Void btnMultiply_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -290,7 +304,7 @@ namespace CppCLRWinformsProjekt {
 			this->txtResult->Text = Convert::ToString(i3);
 		}
 		else {
-			this->lblOper->Text = L"Невозможное число";
+			this->lblError->Text = L"Невозможное число";
 		}
 	}
 	private: System::Void btnDivide_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -302,19 +316,24 @@ namespace CppCLRWinformsProjekt {
 				this->lblOper->Text = L"Деление";
 				i3 = i1 / i2;
 				this->txtResult->Text = Convert::ToString(i3);
-			} else this->lblOper->Text = L"На ноль не делим";
+			} else {
+				this->lblError->Text = L"На ноль не делим";
+				this->txtResult->Text = L"";
+			}
 		}
 		else {
-			this->lblOper->Text = L"Невозможное число";
+			this->lblError->Text = L"Невозможное число";
 		}
 	}
 	private: System::Void txt1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 		this->lblOper->Text = L"";
 		this->txtResult->Text = L"";
+		this->lblError->Text = L"";
 	}
 	private: System::Void txt2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 		this->lblOper->Text = L"";
 		this->txtResult->Text = L"";
+		this->lblError->Text = L"";
 	}
 };
 }
