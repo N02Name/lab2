@@ -272,7 +272,7 @@ namespace CppCLRWinformsProjekt {
 			i3 = i1 + i2;
 			this->txtResult->Text = Convert::ToString(i3);
 		} else {
-			this->lblError->Text = L"Невозможное число";
+			this->lblError->Text = L"Ошибка ввода";
 		}
 	}
 	private: System::Void btnReset_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -292,7 +292,7 @@ namespace CppCLRWinformsProjekt {
 			this->txtResult->Text = Convert::ToString(i3);
 		}
 		else {
-			this->lblError->Text = L"Невозможное число";
+			this->lblError->Text = L"Ошибка ввода";
 		}
 	}
 	private: System::Void btnMultiply_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -305,7 +305,7 @@ namespace CppCLRWinformsProjekt {
 			this->txtResult->Text = Convert::ToString(i3);
 		}
 		else {
-			this->lblError->Text = L"Невозможное число";
+			this->lblError->Text = L"Ошибка ввода";
 		}
 	}
 	private: System::Void btnDivide_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -323,7 +323,7 @@ namespace CppCLRWinformsProjekt {
 			}
 		}
 		else {
-			this->lblError->Text = L"Невозможное число";
+			this->lblError->Text = L"Ошибка ввода";
 		}
 	}
 	private: System::Void txt1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
